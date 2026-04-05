@@ -17,13 +17,14 @@ IntList::IntList(const IntList& source) {
     head = new Node;
     head->info = source.head->info;
     head->next = source.head->next;
-    Node* thisNode = head->next;
+    Node* thisNode = head;
     Node* copyNode = source.head->next;
     while (copyNode != nullptr) {
     	Node* newNode = new Node;
 	newNode->info = copyNode->info;
-	newNode->next = copyNode->next;
-	thisNode = thisNode->next;
+	newNode->next = nullptr;
+	thisNode->next = newNode;
+	thisNode = newNode;
 	copyNode = copyNode->next;
     }
     tail = thisNode;
@@ -33,9 +34,9 @@ IntList::IntList(const IntList& source) {
 IntList::~IntList() {
     Node* thisNode = head;
     while (thisNode != nullptr) {
-    	Node* temp = thisNode;
+    	Node* temp = thisNode->next;
 	delete temp;
-	thisNode = thisNode->next;
+	thisNode = thisNode;
     }
     head = nullptr;
     tail = nullptr;
