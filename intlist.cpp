@@ -59,7 +59,7 @@ bool IntList::contains(int value) const {
     Node* containNode = head;
     while (containNode != nullptr) {
     	if (containNode->info == value) return true;
-	maxNode = maxNode->next;
+	containNode = containNode->next;
     }
     return false;
 }
@@ -79,6 +79,7 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
+    if (count() == 0) return 0.0;
     double average = static_cast<double>(sum()) / count();
     return average;
 }
