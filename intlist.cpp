@@ -10,8 +10,8 @@ using std::cout;
 // copy constructor
 IntList::IntList(const IntList& source) {
     if (source.head == nullptr) {
-    	head == nullptr;
-	taill == nullptr;
+    	head = nullptr;
+	tail = nullptr;
 	return;
     }
     head = new Node;
@@ -39,7 +39,6 @@ IntList::~IntList() {
     }
     head = nullptr;
     tail = nullptr;
-    return 0;
 }
 
 
@@ -128,7 +127,8 @@ IntList& IntList::operator=(const IntList& source){
 
 // constructor sets up empty list
 IntList::IntList(){ 
-    //IMPLEMENT THIS 
+    head = nullptr;
+    tail = nullptr; 
 }
 
 
