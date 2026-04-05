@@ -122,7 +122,19 @@ int IntList::count() const {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    //IMPLEMENT
+    if (this == &source) return *this;
+    Node* curr = head;
+    while (curr != nullptr) {
+        Node* temp = curr->next;
+        delete curr;
+        curr = temp;
+    }
+    head = tail = nullptr;
+    Node* srcNode = source.head;
+    while (srcNode != nullptr) {
+        push_back(srcNode->info);
+        srcNode = srcNode->next;
+    }
     return *this;
 }
 
