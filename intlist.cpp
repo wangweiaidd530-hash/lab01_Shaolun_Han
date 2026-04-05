@@ -35,8 +35,8 @@ IntList::~IntList() {
     Node* thisNode = head;
     while (thisNode != nullptr) {
     	Node* temp = thisNode->next;
-	delete temp;
-	thisNode = thisNode;
+	delete thisNode;
+	thisNode = temp;
     }
     head = nullptr;
     tail = nullptr;
