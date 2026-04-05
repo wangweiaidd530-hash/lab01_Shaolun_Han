@@ -59,6 +59,7 @@ bool IntList::contains(int value) const {
     Node* containNode = head;
     while (containNode != nullptr) {
     	if (containNode->info == value) return true;
+	maxNode = maxNode->next;
     }
     return false;
 }
@@ -69,7 +70,8 @@ int IntList::max() const {
     Node* maxNode = head->next;
     int max = head->info;
     while (maxNode != nullptr) {
-    	if (max > maxNode->info) max = maxNode->info;
+    	if (max < maxNode->info) max = maxNode->info;
+	maxNode = maxNode->next;
     }
     return max;
 }
