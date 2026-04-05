@@ -16,7 +16,7 @@ IntList::IntList(const IntList& source) {
     }
     head = new Node;
     head->info = source.head->info;
-    head->next = source.head->next;
+    head->next = nullptr;
     Node* thisNode = head;
     Node* copyNode = source.head->next;
     while (copyNode != nullptr) {
